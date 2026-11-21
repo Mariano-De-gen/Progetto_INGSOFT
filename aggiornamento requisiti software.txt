@@ -1,0 +1,22 @@
+Ulteriori requisiti non funzionali (Constraints)
+1. Architettura client-server separata: Il sistema deve essere sviluppato secondo un'architettura client-server
+   con netta separazione tra front-end (interfaccia utente) e back-end (logica applicativa e gestione dati)
+
+2. Persistenza lato server: Tutti i dati applicativi (account, missioni, percorsi, progressi, prove e notifiche) devono essere memorizzati
+
+3. Controllo autorizzativo sul back-end: Tutti i vincoli sulle azioni consentite agli utenti 
+   e il blocco di operazioni da parte di soggetti non autorizzati devono essere verificati  
+
+4. Calcolo autorevole del timer lato server: Per le missioni segrete a tempo, il tempo residuo e lo stato di scadenza devono 
+   essere determinati esclusivamente a partire da riferimenti temporali autorevoli del server, affinché la ricarica della pagina,
+   il cambio di dispositivo o la modifica dell'orologio locale non alterino la durata concessa 
+  
+5. Aggiornamento asincrono delle notifiche: Il sistema deve trasmettere e mostrare le nuove notifiche nell'interfaccia utente 
+   ad esempio: quando l'utente pubblica una missione gli arriva una notifica
+
+8. percorso missione
+8.1 un utente autentificato deve poter caricare una missione che racchiude in essa piu missioni in sequenza
+8.2 l' utente alla creazione della missione puo selezionare il tipo di categoria del percorso di missioni
+8.3 l' utente alla creazione della missione creare i vari obbiettivi che comporranno le missioni
+    inserendo il grado di sfida della singola missione
+8.4 l'utente puo acceddere alla missione successiva solo dopo il completamento della missione attuale
