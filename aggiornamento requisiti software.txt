@@ -1,3 +1,17 @@
+Requisiti di sistema:
+1.1. Un utente deve potersi registrare con un'email non già associata ad un account e una password di minimo 8 e massimo 20 caratteri. [altri criteri di sicurezza possono essere laggiunta di una lettera grande e di un simbolo]
+
+Requisiti di dominio altri requisiti di dominio potrebbero essere:
+1.	Sicurezza dei luoghi: Le missioni si svolgono sul territorio. Nessuna missione deve portare gli utenti in posti pericolosi, vietati o dentro proprietà private.  
+2.	Privacy nelle fotografie: I partecipanti possono caricare immagini come prova di un obiettivo. 
+                             Le foto non devono mostrare il volto di sconosciuti o targhe di auto senza permesso.   
+
+3.	Sicurezza nelle missioni a tempo: Le missioni segrete a tempo hanno un conto alla rovescia. Il tempo a disposizione deve essere realistico, 
+                                     per evitare che le persone corrano pericoli nel traffico per fare in fretta.   
+
+4.	Rispetto dei monumenti e della natura: Le attività culturali e di esplorazione non devono mai chiedere di rovinare monumenti, 
+                                          sporcare luoghi pubblici o danneggiare l'ambiente.
+
 Ulteriori requisiti non funzionali (Constraints)
 1. Architettura client-server separata: Il sistema deve essere sviluppato secondo un'architettura client-server
    con netta separazione tra front-end (interfaccia utente) e back-end (logica applicativa e gestione dati)
