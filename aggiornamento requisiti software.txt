@@ -1,6 +1,18 @@
 Requisiti di sistema:
 1.1. Un utente deve potersi registrare con un'email non già associata ad un account e una password di minimo 8 e massimo 20 caratteri. [altri criteri di sicurezza possono essere laggiunta di una lettera grande e di un simbolo]
 
+2.1. Un utente autenticato deve poter creare una missione inserendo titolo, presentazione, categoria, obiettivi, modalità (ordinaria o segreta a tempo), eventuale luogo e condizioni di partecipazione. Nello specifico, come condizioni di partecipazione opzionali, l'autore può impostare un codice di accesso privato (definito dall'autore stesso) per rendere la missione riservata e/o una fascia d'età consentita (età minima e/o massima) per tutelare la sicurezza dei partecipanti. Nel caso di una missione segreta a tempo, le informazioni preliminari mostrate devono essere sufficienti per decidere se accettarla, senza rivelare anticipatamente gli obiettivi. A creazione ultimata, verrà generata una richiesta di approvazione per gli amministratori. La risposta sarà notificata all'autore, che in caso di risposta positiva vedra la sua missione pubblicata
+
+4.1. Un utente autenticato deve poter accettare una missione disponibile solo se soddisfa le eventuali condizioni di partecipazione impostate dall'autore, nello specifico l'inserimento del codice di accesso privato corretto e il rientro nella fascia d'età prevista, verificate dal sistema. Per le missioni segrete a tempo, l'accettazione determina l'avvio del conto alla rovescia e rende visibili gli obiettivi prima nascosti
+
+5.4. Per gli obiettivi che prevedono una risposta testuale o numerica predefinita, il sistema deve notificare l'autore della missione per confermare il risultato
+
+5.5. Al completamento e alla verifica positiva di tutti gli obiettivi previsti, il sistema deve contrassegnare, 
+la missione come conclusa con successo e attribuire all'utente il relativo
+
+5.6. Allo scadere del tempo limite nelle missioni segrete a tempo, il sistema deve bloccare l'invio o la modifica di ulteriori prove e impostare automaticamente lo stato della partecipazione su "scaduta"
+
+
 Requisiti di dominio altri requisiti di dominio potrebbero essere:
 1.	Sicurezza dei luoghi: Le missioni si svolgono sul territorio. Nessuna missione deve portare gli utenti in posti pericolosi, vietati o dentro proprietà private.  
 2.	Privacy nelle fotografie: I partecipanti possono caricare immagini come prova di un obiettivo. 
