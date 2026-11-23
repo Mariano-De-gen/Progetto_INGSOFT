@@ -5,6 +5,11 @@ Requisiti di sistema:
 
 4.1. Un utente autenticato deve poter accettare una missione disponibile solo se soddisfa le eventuali condizioni di partecipazione impostate dall'autore, nello specifico l'inserimento del codice di accesso privato corretto e il rientro nella fascia d'età prevista, verificate dal sistema. Per le missioni segrete a tempo, l'accettazione determina l'avvio del conto alla rovescia e rende visibili gli obiettivi prima nascosti
 
+3. Esplorazione e ricerca
+3.1. Un utente anche non autenticato deve poter esplorare le missioni pubblicate attraverso un elenco. La piattaforma offre ricerca per parole chiave e filtri basati almeno su categorie (Esplorazione, Storico, Enigmi e Artistico), modalità di missione (Segrete o ordinarie) e/o tipologie di missioni (Se con una sola tappa o con più tappe). La piattaforma offre inoltre di filtrare in base alla distanza da una posizione corrente.
+
+3.2. Il sistema deve poter utilizzare l'API di geolocalizzazione del browser, previa autorizzazione dell'utente, per rilevarne la posizione corrente. In caso di rifiuto del permesso o indisponibilità del servizio, la funzione non e disponibile
+
 5.4. Per gli obiettivi che prevedono una risposta testuale o numerica predefinita, il sistema deve notificare l'autore della missione per confermare il risultato
 
 5.5. Al completamento e alla verifica positiva di tutti gli obiettivi previsti, il sistema deve contrassegnare, 
