@@ -1,22 +1,46 @@
-Requisiti di sistema:
-1.1. Un utente deve potersi registrare con un'email non già associata ad un account e una password di minimo 8 e massimo 20 caratteri. [altri criteri di sicurezza possono essere laggiunta di una lettera grande e di un simbolo]
+2.1. [aggiungere dettagli e attributi mockup]:
+Titolo (obbligatorio): stringa di testo.
+Presentazione (obbligatorio): descrizione sintetica della missione (massimo 500 caratteri), visibile a tutti gli utenti prima dell'accettazione.
+Categoria (obbligatorio): selezione tra le categorie predefinite (Esplorazione, Storico, Enigmi, Artistico).   
+Modalità (opzionale): seleziona la spunta Segreta a tempo. In caso di modalità Segreta a tempo, diventa obbligatorio il campo Tempo Limite.   
+Luogo (opzionale): posizione geografica selezionabile tramite puntatore su mappa interattiva (coordinate latitudine/longitudine).
+Elenco Tappe (obbligatorio, minimo 1 tappa): sequenza ordinata di una o più tappe che compongono la missione. Ciascuna tappa è caratterizzata da:
+- Titolo e descrizione della tappa.
+- Luogo della tappa (opzionale): coordinate geografiche specifiche su mappa per la singola tappa.
+- Elenco Obiettivi della tappa (obbligatorio, minimo 1 per tappa): ogni obiettivo include una descrizione e la tipologia di verifica (caricamento prova fotografica, descrizione testuale con valutazione manuale dell'autore, oppure risposta testuale esatta con verifica automatica e relativo campo risposta attesa)
+Condizioni di partecipazione (opzionali):
+- Codice di accesso: stringa alfanumerica personalizzata dall'autore per rendere la missione privata.   
+- Fascia d'età: valori numerici opzionali per età minima e/o età massima consentita (calcolata rispetto alla data di nascita dell'utente).
 
-2.1. Un utente autenticato deve poter creare una missione inserendo titolo, presentazione, categoria, obiettivi, modalità (ordinaria o segreta a tempo), eventuale luogo e condizioni di partecipazione. Nello specifico, come condizioni di partecipazione opzionali, l'autore può impostare un codice di accesso privato (definito dall'autore stesso) per rendere la missione riservata e/o una fascia d'età consentita (età minima e/o massima) per tutelare la sicurezza dei partecipanti. Nel caso di una missione segreta a tempo, le informazioni preliminari mostrate devono essere sufficienti per decidere se accettarla, senza rivelare anticipatamente gli obiettivi. A creazione ultimata, verrà generata una richiesta di approvazione per gli amministratori. La risposta sarà notificata all'autore, che in caso di risposta positiva vedra la sua missione pubblicata
+5.4. [notifiche separate per successo o fallimento, scrivere motivazione di scelta progettuale]
+Per gli obiettivi che prevedono una risposta testuale fornita dall'autore in fase di creazione, il sistema effettua un confronto automatico e deve notificare il risultato all'autore della missione. 
+Il sistema invia inoltre notifiche separate al partecipante per successo o fallimento:
+- Successo: notifica l'obiettivo superato al partecipante e aggiorna la missione.
+- Fallimento: notifica l'errore al partecipante, permettendogli di riprovare finché la missione è attiva.
+Motivazione della scelta progettuale:
+Separare le notifiche e automatizzare il controllo offre due vantaggi:
+- Per il partecipante: dà un feedback immediato, fondamentale nelle missioni segrete a tempo dove non si può aspettare l'autore.
+- Per l'autore: evita di dover controllare a mano risposte oggettive e riduce le notifiche inutili.
 
-4.1. Un utente autenticato deve poter accettare una missione disponibile solo se soddisfa le eventuali condizioni di partecipazione impostate dall'autore, nello specifico l'inserimento del codice di accesso privato corretto e il rientro nella fascia d'età prevista, verificate dal sistema. Per le missioni segrete a tempo, l'accettazione determina l'avvio del conto alla rovescia e rende visibili gli obiettivi prima nascosti
+6.3. [Altro?]
+Un utente autenticato deve poter visualizzare le notifiche riguardo:
+- l'esito della richiesta di approvazione di una missione creata;
+- l'accettazione di una missione da parte di un altro utente;
+- la richiesta di verifica di una prova di obiettivo raggiunto;
+- una variazione dello stato di una missione accettata;
+- l'esito della verifica di una prova di obiettivo raggiunto;
+- l'avviso di imminente scadenza o la scadenza effettiva di una missione a tempo;
+- l'avanzamento di grado o l'ottenimento di un riconoscimento dopo aver completato una missione;
 
-3. Esplorazione e ricerca
-3.1. Un utente anche non autenticato deve poter esplorare le missioni pubblicate attraverso un elenco. La piattaforma offre ricerca per parole chiave e filtri basati almeno su categorie (Esplorazione, Storico, Enigmi e Artistico), modalità di missione (Segrete o ordinarie) e/o tipologie di missioni (Se con una sola tappa o con più tappe). La piattaforma offre inoltre di filtrare in base alla distanza da una posizione corrente.
+7. [meteo OPEN-METEO API]
+- Funzionalità e utilità: Per le missioni dotate di coordinate geografiche, il sistema interroga il servizio pubblico Open-Meteo API per mostrare nella scheda della missione le condizioni meteo attuali e le previsioni a breve termine del luogo, aiutando l'utente a valutare se svolgere l'attività all'aperto. 
+- Gestione errori e indisponibilità: In caso di errore di rete, timeout o servizio irraggiungibile, l'applicazione non blocca la visualizzazione della missione ma mostra un avviso discreto ("Dati meteo temporaneamente non disponibili").
 
-3.2. Il sistema deve poter utilizzare l'API di geolocalizzazione del browser, previa autorizzazione dell'utente, per rilevarne la posizione corrente. In caso di rifiuto del permesso o indisponibilità del servizio, la funzione non e disponibile
-
-5.4. Per gli obiettivi che prevedono una risposta testuale o numerica predefinita, il sistema deve notificare l'autore della missione per confermare il risultato
-
-5.5. Al completamento e alla verifica positiva di tutti gli obiettivi previsti, il sistema deve contrassegnare, 
-la missione come conclusa con successo e attribuire all'utente il relativo
-
-5.6. Allo scadere del tempo limite nelle missioni segrete a tempo, il sistema deve bloccare l'invio o la modifica di ulteriori prove e impostare automaticamente lo stato della partecipazione su "scaduta"
-
+8. Percorso di missioni
+8.1. Un utente autenticato deve poter creare un percorso di missioni che racchiude al suo interno più missioni collegate in sequenza.
+8.2. In fase di creazione, l'utente può selezionare la categoria del percorso di missioni.
+8.3. Durante la creazione, l'utente definisce i vari obiettivi che compongono le singole missioni, specificando il grado di sfida (A, B, C, D) di ciascuna missione.
+8.4. Il partecipante può accedere alla missione successiva del percorso solo dopo aver completato con successo la missione attuale.
 
 Requisiti di dominio altri requisiti di dominio potrebbero essere:
 1.	Sicurezza dei luoghi: Le missioni si svolgono sul territorio. Nessuna missione deve portare gli utenti in posti pericolosi, vietati o dentro proprietà private.  
@@ -44,10 +68,3 @@ Ulteriori requisiti non funzionali (Constraints)
   
 5. Aggiornamento asincrono delle notifiche: Il sistema deve trasmettere e mostrare le nuove notifiche nell'interfaccia utente 
    ad esempio: quando l'utente pubblica una missione gli arriva una notifica
-
-8. percorso missione
-8.1 un utente autentificato deve poter caricare una missione che racchiude in essa piu missioni in sequenza
-8.2 l' utente alla creazione della missione puo selezionare il tipo di categoria del percorso di missioni
-8.3 l' utente alla creazione della missione creare i vari obbiettivi che comporranno le missioni
-    inserendo il grado di sfida della singola missione
-8.4 l'utente puo acceddere alla missione successiva solo dopo il completamento della missione attuale
