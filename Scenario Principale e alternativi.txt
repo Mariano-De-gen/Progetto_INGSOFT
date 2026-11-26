@@ -1,0 +1,47 @@
+Scenario Principale di Successo:
+1. L'utente preme il pulsante + dalla schermata M2 - Ricerca.
+
+2. Il sistema visualizza la schermata M3 - Crea missione.
+
+3. L'utente inserisce il Titolo della missione, seleziona la/le Categorie (Esplorazione, Storico, Enigmi, Artistico) e compila la Presentazione.
+
+4. (Opzionale) L'utente imposta eventuali Condizioni di partecipazione (codice di accesso privato e/o fascia d'età).
+
+5. L'utente avvia l'aggiunta di una tappa; il sistema apre la schermata M4 - Dettagli tappa.
+
+6. L'utente inserisce il Nome della tappa, un'eventuale Presentazione e, se desiderato, seleziona la posizione geografica tramite "+ Aggiungi luogo".
+
+7. L'utente preme "+ Aggiungi obiettivo"; il sistema apre la schermata M5 - Dettagli obiettivo.
+
+8. L'utente compila Nome dell'obiettivo, Descrizione dell'obiettivo, seleziona il Grado di difficoltà proposto (A, B, C, D) e sceglie la modalità di completamento (Scatta una foto oppure Inserisci una risposta), quindi preme Conferma obiettivo.
+
+9. Il sistema valida i campi dell'obiettivo, lo aggiunge alla tappa corrente e ritorna a M4 - Dettagli tappa. (I passi 7–9 possono essere ripetuti per inserire più obiettivi nella stessa tappa).
+
+10. L'utente preme Conferma tappa; il sistema valida la tappa, la aggiunge alla missione e ritorna a M3 - Crea missione. (I passi 5–10 possono essere ripetuti per aggiungere più tappe).
+
+11. L'utente preme Invia richiesta di approvazione.
+
+12. Il back-end verifica l'autorizzazione dell'utente e la validità di tutti i dati, salva la missione in stato "In attesa..." e la rende visibile nella coda di revisione degli amministratori.
+
+13. Il sistema mostra il pop-up P2 - Conferma ("Missione inviata"), informando l'utente che riceverà una notifica a verifica ultimata; alla pressione di Ok, il sistema va alla schermata M? - Missioni utente.
+
+14. la missione viene visualizzata dagli aministratori che la supervisionano per l'approvazione
+
+15. gli aministratori approvano la missione che viene pubblicata
+
+Scenari Alternativi ed Errori:
+1a. Utente visitatore (non autenticato): preme il tasto + il back-end blocca la richiesta; il sistema invita l'utente ad autenticarsi (M1).
+
+3a. Selezione "Missione segreta": l'utente spunta la casella Missione segreta in M3; il sistema abilita e rende obbligatorio il campo Tempo limite dall'accettazione (hh : mm), ricordando che gli obiettivi resteranno nascosti fino all'accettazione.
+
+8a. Verifica automatica vs manuale per risposta testuale: se l'utente sceglie Inserisci una risposta e compila il campo Risposta accettata, il sistema imposta la verifica automatica; se lascia il campo vuoto, imposta la verifica manuale da parte dell'autore.
+
+9a / 10a / 12a. Campi obbligatori mancanti o non validi: (es. titolo vuoto, presentazione oltre i 500 caratteri, nessuna categoria, tempo limite non inserito per missione segreta, tappa senza obiettivi o missione senza tappe). Il sistema evidenzia i campi mancanti/errati e impedisce il salvataggio fino alla correzione.
+
+2a–11a. Annullamento della creazione della missione (P5 - Warning): l'utente preme X in M3. Il sistema visualizza il pop-up P5 - Warning chiedendo conferma. Se l'utente preme Annulla missione, il sistema scarta tutti i dati non salvati e torna a M2; se preme Continua Missione, il pop-up si chiude e l'utente riprende la compilazione.
+
+6a–8a. Annullamento inserimento tappa o obiettivo: l'utente preme la freccia indietro (<-) in M4 o M5. Il sistema mostra il pop-up per converma se l'utente clicca si ilsistema scarta i dati non confermati della singola tappa o del singolo obiettivo e torna alla schermata precedente (M3 o M4) se invece l'utente annulla, il sistema non torna inditerto. .
+
+12b. Errore di rete o server non raggiungibile: il sistema notifica l'errore con un messaggio chiaro all'utente e mantiene i dati inseriti nel modulo per consentire un nuovo tentativo di invio.
+
+14a. l'amministratore boccia la missione inserendo anche una nota di giustificazione del perche e stata bocciata, l'utente viene notificato e la missione da lui creata viene etichettata come "riffiutata" con la possibilita di modificarla seguendo la nota dellaministratore per una altro tentativo.
