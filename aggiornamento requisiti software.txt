@@ -22,6 +22,10 @@ Separare le notifiche e automatizzare il controllo offre due vantaggi:
 - Per il partecipante: dà un feedback immediato, fondamentale nelle missioni segrete a tempo dove non si può aspettare l'autore.
 - Per l'autore: evita di dover controllare a mano risposte oggettive e riduce le notifiche inutili.
 
+5.5. [Grado] 
+Al completamento e alla verifica positiva di tutti gli obiettivi previsti, il sistema deve contrassegnare la missione come conclusa con successo
+e attribuire all'utente un punteggio esperienza (XP) proporzionale al grado di sfida della missione (A, B, C, D), aggiornando di conseguenza il livello/grado visibile nel profilo personale.
+
 6.3. [Altro?]
 Un utente autenticato deve poter visualizzare le notifiche riguardo:
 - l'esito della richiesta di approvazione di una missione creata;
@@ -35,12 +39,15 @@ Un utente autenticato deve poter visualizzare le notifiche riguardo:
 7. [meteo OPEN-METEO API]
 - Funzionalità e utilità: Per le missioni dotate di coordinate geografiche, il sistema interroga il servizio pubblico Open-Meteo API per mostrare nella scheda della missione le condizioni meteo attuali e le previsioni a breve termine del luogo, aiutando l'utente a valutare se svolgere l'attività all'aperto. 
 - Gestione errori e indisponibilità: In caso di errore di rete, timeout o servizio irraggiungibile, l'applicazione non blocca la visualizzazione della missione ma mostra un avviso discreto ("Dati meteo temporaneamente non disponibili").
+- Attribuzioni: Nell'interfaccia della scheda missione viene riportata esplicitamente la dicitura "Weather data by Open-Meteo.com", nel rispetto dei termini d'uso del servizio.
+- Gestione dei limiti d'uso (Rate Limit): Per rispettare le soglie di utilizzo gratuito dell'API ed evitare chiamate ridondanti, il back-end salva temporaneamente in cache le previsioni meteo per 30 minuti in base alle coordinate geografiche della missione, riutilizzando i dati salvati per richieste successive nella stessa area.
 
 8. Percorso di missioni
 8.1. Un utente autenticato deve poter creare un percorso di missioni che racchiude al suo interno più missioni collegate in sequenza.
 8.2. In fase di creazione, l'utente può selezionare la categoria del percorso di missioni.
 8.3. Durante la creazione, l'utente definisce i vari obiettivi che compongono le singole missioni, specificando il grado di sfida (A, B, C, D) di ciascuna missione.
 8.4. Il partecipante può accedere alla missione successiva del percorso solo dopo aver completato con successo la missione attuale.
+8.5. Durante lo svolgimento di un percorso, il sistema deve mostrare al partecipante l'ordine delle missioni previste.
 
 Requisiti di dominio altri requisiti di dominio potrebbero essere:
 1.	Sicurezza dei luoghi: Le missioni si svolgono sul territorio. Nessuna missione deve portare gli utenti in posti pericolosi, vietati o dentro proprietà private.  
